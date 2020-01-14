@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Student>
+@{
+    var modelError = ViewData["studentNotFound"];
+}
+
+@if(modelError != null)
+{
+    <div class="text-danger">@modelError</div>
+}
+<div>
+    <a asp-action="Create">Add student</a>
+</div>
+<table class="table">
+    <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Email</th>
+        <th>Age</th>
+    </tr>
+    @foreach (var student in Model)
+    {
+    <tr>
+        <td>@student.Firstname</td>
+        <td>@student.Lastname</td>
+        <td>@student.Email</td>
+        <td>@student.Age</td>
+        <td><a asp-action="Edit" asp-route-id="@student.Id">Edit</a></td>
+    </tr>
+    }
+</table>

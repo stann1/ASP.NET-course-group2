@@ -1,0 +1,19 @@
+﻿@model SchoolClass
+
+@{
+
+    ViewData["title"] = "Add class";
+
+}
+
+<div class="row">
+
+<form asp-action="Create" method="post">
+    <label for="className">Name</label>
+    <input type="text" name="className" value="" asp-for="className">
+    <label for="numberLessons">Number of lessons</label>
+    <input type="text" name="numberLessons" value="" asp-for="numberLessons">
+    <input type="submit" action="post" value="Save">
+</form>
+</div>
+

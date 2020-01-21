@@ -66,5 +66,30 @@ namespace WebApp.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult Details(int id)
+        {
+            var student = _context.Students.FirstOrDefault(s => s.Id == id);
+            if (student != null)
+            {
+                var allClasses = _context.SchoolClasses.ToList();
+                ViewData["Classes"] = allClasses;
+                return View(student);
+            }
+
+            return NotFound();
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var student = _context.Students.FirstOrDefault(s => s.Id == id);
+            if (student != null)
+            {
+                _context.Students.Remove(student);
+                _context.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }

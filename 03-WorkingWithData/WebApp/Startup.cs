@@ -37,7 +37,8 @@ namespace WebApp
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddDbContext<SchoolContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+                //options.UseSqlServer(Configuration.GetConnectionString("DefaultMSSQLConnection"));
+                options.UseSqlite(Configuration.GetConnectionString("DefaultSqlLiteConnection"));
             });
         }
 

@@ -24,7 +24,11 @@
         <td>@student.Lastname</td>
         <td>@student.Email</td>
         <td>@student.Age</td>
-        <td><a asp-action="Edit" asp-route-id="@student.Id">Edit</a></td>
+        <td>
+            <a asp-action="Edit" asp-route-id="@student.Id">Edit</a> |
+            <a asp-action="Details" asp-route-id="@student.Id">Details</a> |
+            <a asp-action="Delete" asp-route-id="@student.Id">Delete</a>
+        </td>
     </tr>
     }
 </table>

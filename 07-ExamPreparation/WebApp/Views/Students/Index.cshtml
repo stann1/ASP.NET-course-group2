@@ -1,0 +1,12 @@
+﻿@model IEnumerable<WebApp.Models.Student>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<partial name="_StudentsListPartial" model="Model" />
